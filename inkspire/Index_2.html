@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document and Folder Publisher</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .container {
+            margin-bottom: 30px;
+        }
+        .document-list, .folder-list {
+            margin-top: 20px;
+        }
+        .item {
+            margin: 5px 0;
+            padding: 5px;
+            background-color: #f4f4f4;
+        }
+        .drop-zone {
+            width: 300px;
+            height: 150px;
+            border: 2px dashed #ccc;
+            text-align: center;
+            line-height: 150px;
+            margin-top: 10px;
+        }
+        .drop-zone.dragover {
+            background-color: #f0f8ff;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Publish and Search Documents/Folders</h1>
+
+    <!-- Publish Document -->
+    <div class="container">
+        <h2>Publish a Document</h2>
+        <form id="publishForm">
+            <label for="docName">Document Name:</label>
+            <input type="text" id="docName" name="docName" required><br><br>
+
+            <label for="docFile">Upload Document:</label><br>
+            <input type="file" id="docFile" name="docFile" required><br><br>
+
+            <div class="drop-zone" id="dropZone">
+                Drag & drop a file here or click to select
+            </div>
+
+            <button type="submit">Publish Document</button>
+        </form>
+    </div>
+
+    <!-- Publish Folder -->
+    <div class="container">
+        <h2>Publish a Folder</h2>
+        <label for="folderName">Folder Name:</label>
+        <input type="text" id="folderName" name="folderName" required><br><br>
+
+        <label for="folderInput">Drag and drop a folder:</label><br>
+        <input type="file" id="folderInput" webkitdirectory mozdirectory>
+        <button id="publishFolderBtn">Publish Folder</button>
+    </div>
+
+    <!-- Search Bar -->
+    <div class="container">
+        <h2>Search Documents/Folders</h2>
+        <input type="text" id="searchBar" placeholder="Search by name" oninput="searchItems()">
+    </div>
+
+    <!-- Lists of Published Documents and Folders -->
+    <div class="document-list" id="documentList"></div>
+    <div class="folder-list" id="folderList"></div>
+
+    <script>
+        const publishForm = document.getElementById("publishForm");
+        const docNameInput = document.getElementById("docName");
+        const docFileInput = document.getElementById("docFile");
+        const dropZone = document.getElementById("dropZone");
+        const documentList = document.getElementById("documentList");
+        const folderInput = document.getElementById("folderInput");
+        const folderList = document.getElementById("folderList");
+        const searchBar = document.getElementById("searchBar");
+        const folderNameInput = document.getElementById("folderName");
+
+        const currentUser = "owner"; // Simulated user identity
+
+        let documents = [];
+        let folders = [];
+
+        // Publish Document
+        publishForm.addEventListener("submit", function(event) {
+            event.preventDefault();
+            const docName = docNameInput.value.trim();
+            const file = docFileInput.files[0];
+
+            if (docName && file) {
+                const document = {
+                    id: Date.now(),
+                    name: docName,
+                    file: file,
+                    owner: currentUser
+                };
+
+                documents.push(document);
+                displayDocuments(documents);
+                docNameInput.value = '';  // Clear input after publishing
+                docFileInput.value = '';  // Clear file input after publishing
+            }
+        });
+
+        // Publish Folder
+        document.getElementById("publishFolderBtn").addEventListener("click", function() {
+            const folderName = folderNameInput.value.trim();
+            const files = folderInput.files;
+
+            if (folderName && files.length > 0) {
+                const folder = {
+                    id: Date.now(),
+                    name: folderName,
+                    files: Array.from(files),
+                    owner: currentUser
+                };
+
+                folders.push(folder);
+                displayFolders(folders);
+                folderNameInput.value = ''; // Clear folder name input
+                folderInput.value = ''; // Clear folder input
+            }
+        });
+
+        // Search Documents and Folders
+        function searchItems() {
+            const searchTerm = searchBar.value.toLowerCase();
+            const filteredDocs = documents.filter(doc => doc.name.toLowerCase().includes(searchTerm));
+            const filteredFolders = folders.filter(folder => folder.name.toLowerCase().includes(searchTerm));
+            displayDocuments(filteredDocs);
+            displayFolders(filteredFolders);
+        }
+
+        // Display Documents
+        function displayDocuments(docs) {
+            documentList.innerHTML = '';
+            docs.forEach(doc => {
+                const docElement = document.createElement("div");
+                docElement.classList.add("item");
+                docElement.innerHTML = `
+                    <strong>${doc.name}</strong> - 
+                    <a href="document.html?id=${doc.id}">Read</a>
+                `;
+                documentList.appendChild(docElement);
+            });
+        }
+
+        // Display Folders
+        function displayFolders(folders) {
+            folderList.innerHTML = '';
+            folders.forEach(folder => {
+                const folderElement = document.createElement("div");
+                folderElement.classList.add("item");
+                folderElement.innerHTML = `
+                    <strong>${folder.name}</strong> - 
+                    <a href="folder.html?id=${folder.id}">Open Folder</a>
+                `;
+                folderList.appendChild(folderElement);
+            });
+        }
+
+        // Drag & Drop Functionality for Document Upload
+        dropZone.addEventListener("dragover", function(event) {
+            event.preventDefault();
+            dropZone.classList.add("dragover");
+        });
+
+        dropZone.addEventListener("dragleave", function() {
+            dropZone.classList.remove("dragover");
+        });
+
+        dropZone.addEventListener("drop", function(event) {
+            event.preventDefault();
+            dropZone.classList.remove("dragover");
+
+            const file = event.dataTransfer.files[0];
+            if (file) {
+                docFileInput.files = event.dataTransfer.files;  // Simulate file input
+            }
+        });
+    </script>
+
+</body>
+</html>

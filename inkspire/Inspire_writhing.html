@@ -1,0 +1,317 @@
+<html >
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style type="text/css">
+        body {
+            font: 0.8em Arial, Helvetica, sans-serife;
+            background: #D7E1F2;
+            color: #ffffee
+        }
+
+        #container {
+            width: 1000px;
+            margin: 0 auto;
+            background: rgb(255, 255, 255);
+            box-shadow: 0px 3px 20px 0px black;
+                /**/
+        }
+
+        #header {
+            font-size: 2.2 em;
+            text-align: center;
+            background: rgb(249, 251, 248);
+            
+           
+        }
+
+        #nav,
+        #aside {
+            float: left;
+            width: 110px;
+            padding: 5px
+        }
+
+        #content {
+            background: white;
+            margin: 0 60px;
+            padding: 10px
+        }
+
+        #aside {
+            float: right;
+            color: brown
+        }
+
+        .title_bar {
+            border-radius: 10px;
+            height: fit-content;
+            display: inline-flex;
+            background-color: rgba(10, 65, 88, 0.9);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            align-items: center;
+            padding: 0 10px;
+            margin: 15px 0 0 0;
+            justify-content: center;
+            align-items: center;
+            width: 850px;
+            box-shadow: 0px 3px 20px 0px black;
+            
+            
+
+        }
+
+        .menu-bar {
+            border-radius: 25px;
+            height: fit-content;
+            display: inline-flex;
+            background-color: rgba(10, 65, 88, 0.9);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            align-items: center;
+            padding: 0 10px;
+            margin: 25px 0 0 0;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0px 3px 20px 0px black;
+
+
+
+
+
+            li {
+                list-style: none;
+                color: white;
+                font-family: sans-serif;
+                font-weight: bold;
+                padding: 12px 0px;
+                margin: 0 8px;
+                position: relative;
+                cursor: pointer;
+                white-space: nowrap;
+
+                &::before {
+                    content: " ";
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    height: 100%;
+                    width: 100%;
+                    z-index: -1;
+                    transition: .2s;
+                    border-radius: 25px;
+                }
+
+                a {
+                    list-style: none;
+                    color: white;
+                    font-family: sans-serif;
+                    font-weight: bold;
+                    padding: 12px 16px;
+                    margin: 0 8px;
+                    position: relative;
+                    cursor: pointer;
+                    white-space: nowrap;
+                    text-decoration: none;
+
+                    &:hover {
+                        &::before {
+                            background: linear-gradient(to bottom, #e8edec, #d2d1d3);
+                            box-shadow: 0px 3px 20px 0px black;
+                            transform: scale(1.2);
+
+                        }
+
+                        color: black;
+                        text-decoration: none;
+
+                    }
+
+
+                }
+
+                &:hover {
+                    &::before {
+                        background: linear-gradient(to bottom, #e8edec, #d2d1d3);
+                        box-shadow: 0px 3px 20px 0px black;
+                        transform: scale(1.2);
+                    }
+
+                    color: black;
+                }
+            }
+        }
+
+
+
+
+
+        h2 {
+            margin: 0px;
+            padding: 10px;
+            text-align: center;
+            font-family: "Times New Roman", serife;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 2px black;
+        }
+
+        #footer {
+            clear: both;
+            padding: 5px;
+            background: white
+        }
+
+        h1 {
+            margin: 5px;
+            font-size: 4em;
+            text-align: center;
+            color: #698B69;
+            font-family: Gabriola, Monotype Corsiva, Cursive;
+            text-shadow: 2px 2px 2px black;
+        }
+
+        p {
+            font-size: 1.5em;
+            color: #000000;
+            font-family: "Times New Roman", serife;
+            text-align: justify
+        }
+
+
+        li {
+            font-size: 1em;
+            color: #000000;
+            font-family: "Times New Roman", serife;
+            text-align: justify;
+            text-shadow: 2px 2px 2px black;
+        }
+
+        ul {
+            font-size: 1.5em;
+            color: #000000;
+            font-family: "Times New Roman", serife;
+            text-align: justify
+        }
+    </style>
+
+<body fpstyle="1" ocsi="1">
+    <div style="direction:ltr; font-family:Tahoma; color:#000000; font-size:10pt; ">
+        <div id="container" >
+            <div id="header" ><img style="box-shadow: 0px 3px 20px 0px black;" src="pictures/inkspire_title copy.jpg" width="1000">
+
+                <ul class="menu-bar">
+
+                    <li>
+                        <a href="index.html">Welcome</a>
+                    </li>
+                    <li>
+                        <a href="mind_map.html">Mind maps</a>
+                    </li>
+                    <li>
+                        <a href="#">Write</a>
+                    </li>
+                    <li>
+                        <a href="#">Read</a>
+                    </li>
+                    <li>
+                        <a href="#">Comming soon</a>
+                    </li>
+                    <li>
+                        <a href="#">Login</a>
+                    </li>
+
+
+
+
+                </ul>
+            </div>
+
+
+
+            <div id="nav"> </div>
+            <div id="aside"></div>
+
+            <div id="content">
+
+                <h1><i>
+                        <font color="#19617E">Writing</font>
+                    </i>
+                </h1>
+                <div class="title_bar">
+                    <h2>
+                        <font color="#f0f0f0">Presentation of Inspire Web Site</font>
+                    </h2>
+                </div>
+                <p><i>В августовския бюлетин ще бъде описана една от често срещана атака в Интернет пространството,
+                        която се нарича <b>„криптоджакинг“</b>, на английски <b>cryptojacking</b>. Ще бъде предоставена
+                        информация, как се извършва заразяването и какви са последствията от това.
+                    </i></p>
+                <img src="pictures/crypto_jacking.jpg" width="660" height="350">
+                <div style="background-color:#08568A">
+                    <h2>
+                        <font color="#f0f0f0">Какво представлява „Криптоджакинга“?</font>
+                    </h2>
+                </div>
+                <p>„Криптоджакинга“ е неразрешено използване на компютъра ви за добив на криптовалута, което може да
+                    доведе до външни и вътрешни повреди на компонентите на вашия компютър. Обикновено хакерите правят
+                    това, като примамват жертвите да кликнат върху злонамерена връзка в имейл, който зарежда
+                    криптовалутен код на компютъра. Друг начин, който се използва е, чрез заразяване на WEB сайт или
+                    онлайн реклама, които използват JavaScript, който след зареждане на WEB страницата се изпълнява
+                    автоматично в WEB браузера на жертвата. И при двата начина кода използван за добив на криптовалута
+                    работи във фонов режим, докато нищо не подозиращите жертви използват своите компютри нормално.</p>
+                <p></p>
+                <img src="pictures/cryptojacking_populyarity.jpg" width="660">
+                <div style="background-color:#08568A">
+                    <h2>
+                        <font color="#f0f0f0">Защо е популярен?</font>
+                    </h2>
+                </div>
+                <p></p>
+                <p>Никой не знае със сигурност, колко криптовалута се добива с „Криптоджакинга“ , но изследванията
+                    показват, че тази практика е широко разпространена. Причината за неговата популярност е: „повече
+                    пари при по-малък риск‘. Например при заразяване на 100 компютъра с крипто вирус само 3 жертви ще
+                    бъдат склонни да платят откуп, докато при използване на „Криптоджакинга“ и стоте заразени компютъра
+                    ще донесат печалба на хакера. Допълнително при „Криптоджакинга“, риска хакерите да бъдат хванати е
+                    много малък, а и да бъде открит софтуера добиващ валута, жертвите нямат стимул да повдигат
+                    обвинение, тъй като нищо не им е било откраднато или криптирано. </p>
+                <p></p>
+                <img src="pictures/hide_bitcoin.jpg" width="660">
+                <div style="background-color:#08568A">
+                    <h2>
+                        <font color="#f0f0f0">Как се използва?</font>
+                    </h2>
+                </div>
+                <p>В началото най-често използвания начин за „Криптоджакинг“ е, чрез браузерите на потребителите
+                    посещаващи заразени сайтове. Статистиката сочи, че до средата на 2018 г. този начин достига своя
+                    пик, когато е отчетено, че в над 40 000 WEB сайта е имплементиран зловреден код за добиване на
+                    криптовалута.</p>
+                <p>Тази тенденция рязко се променя в началото на 2019 г., когато броя на заразените сайтове спада с 23%
+                    в сравнение с началото на 2018 г. Причината е, че хакерите масово се ориентират към по-ефективния
+                    начин за добив на криптовалута, чрез заразяване на компютри с криптовалутен код. На базата на
+                    съществуващите вируси, са разработени различни вариации на зловредни криптовалутни кодове –
+                    криптовалутни-червеи, криптовалутни-ботове, криптовалутен-рансъмуер и др. Дори прословутият
+                    криптиращ вирус WannaCry е използван за създаване на криптовалутен вирус WannaMine.</p>
+                <img src="pictures/crypto_jacking.png" width="660">
+                <div style="background-color:#08568A">
+                    <h2>
+                        <font color="#f0f0f0">Вреди от „Криптоджакинга“</font>
+                    </h2>
+                </div>
+                <ul>Въпреки, че на пръв поглед „Криптоджакинга“ да изглежда безобиден той има и своите лоши страни:
+                    <li>Натоварва сериозно ресурсите, които използва, което води до увеличаване на сметките за ток, до
+                        по-бързо износване на компютрите, а в определени случаи и до прегряване и дефектирането им;</li>
+                    <li>Забавя работата на компютрите, на които е инсталиран, като ограничава процесорното време и
+                        количеството памет използвани от потребителите и от услугите доставяни от сървърите;</li>
+                    <li>Разпространява се в цялата мрежа и се опитва да зарази сървърите на организацията, за да
+                        използва компютърната им мощ;</li>
+                    <li>Намалява пропускателната способност на мрежата, в която функционира;</li>
+                    <li>Увеличава риска за сигурността, поради инсталирането на ненадеждна програма;</li>
+                    <li>Извършва се кражба на компютърни ресурси без знание на притежателя им.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
